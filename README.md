@@ -18,12 +18,12 @@ Upload one or more PDF resumes and get:
 
 ##  Features
 
-- ✅ Resume parsing via OCR (PDF support)
-- ✅ GPT-driven information extraction (23 fields)
-- ✅ Excel/CSV output with clean structure
-- ✅ Job-role-based scoring and suitability analysis
-- ✅ Automatically chooses GPT-3.5 or GPT-4 based on token size
-- ✅ Customizable prompt for different use-cases
+-  Resume parsing via OCR (PDF support)
+-  GPT-driven information extraction (23 fields)
+-  Excel/CSV output with clean structure
+-  Job-role-based scoring and suitability analysis
+-  Automatically chooses GPT-3.5 or GPT-4 based on token size
+-  Customizable prompt for different use-cases
 
 ---
 
@@ -40,12 +40,12 @@ Upload one or more PDF resumes and get:
 
 ##  What I Added / Customized
 
-✅ Rewrote prompt logic to include job-fit analysis  
-✅ Added support for uploading job descriptions and matching against resume  
-✅ Improved error handling for GPT-4 rate limits  
-✅ Designed scoring system based on keyword matching  
-✅ Refactored folder structure for clarity  
-✅ Deployed version with sample resume + JD for demo
+ Rewrote prompt logic to include job-fit analysis  
+ Added support for uploading job descriptions and matching against resume  
+ Improved error handling for GPT-4 rate limits  
+ Designed scoring system based on keyword matching  
+ Refactored folder structure for clarity  
+ Deployed version with sample resume + JD for demo
 
 ---
 
