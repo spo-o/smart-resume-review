@@ -1,22 +1,22 @@
-# 🤖 Smart Resume Analyzer AI
+# Smart Resume Analyzer AI
 
 An AI-powered tool that analyzes resumes and extracts 20+ structured insights using GPT-3.5/GPT-4. Perfect for HR tech, resume screening, or job matching applications.
 
-> 📄 Built on LangChain + OpenAI + PDF parsing with advanced prompt engineering.
+>  Built on LangChain + OpenAI + PDF parsing with advanced prompt engineering.
 
 ---
 
-## 🚀 What It Does
+## What It Does
 
 Upload one or more PDF resumes and get:
-- 🎯 Education, skills, certifications, and job history
-- 📊 AI-powered suitability rating for selected job roles
-- 📁 Export as Excel or CSV (HR-friendly format)
-- 🧠 GPT-based content extraction and structuring
+-  Education, skills, certifications, and job history
+-  AI-powered suitability rating for selected job roles
+-  Export as Excel or CSV (HR-friendly format)
+-  GPT-based content extraction and structuring
 
 ---
 
-## ✨ Features
+##  Features
 
 - ✅ Resume parsing via OCR (PDF support)
 - ✅ GPT-driven information extraction (23 fields)
@@ -27,7 +27,7 @@ Upload one or more PDF resumes and get:
 
 ---
 
-## 🛠 Technologies Used
+##  Technologies Used
 
 - Python 3.8+
 - LangChain
@@ -38,7 +38,7 @@ Upload one or more PDF resumes and get:
 
 ---
 
-## 🧠 What I Added / Customized
+##  What I Added / Customized
 
 ✅ Rewrote prompt logic to include job-fit analysis  
 ✅ Added support for uploading job descriptions and matching against resume  
