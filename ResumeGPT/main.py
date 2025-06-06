@@ -27,3 +27,7 @@ cvs_info_extractor = CVsInfoExtractor(cvs_df = cvs_content_df, openai_api_key = 
 # Use the extract_cv_info method of the CVsInfoExtractor instance to extract the desired information from the CVs.
 # This method presumably returns a list of dataframes, each dataframe corresponding to the extracted information from each CV.
 extract_cv_info_dfs = cvs_info_extractor.extract_cv_info()
+
+print("\n==== Summary ====")
+print(f"Total CVs Processed: {len(cvs_content_df)}")
+print(f"Job Description Keywords: {len(job_description_text.split())} words")
