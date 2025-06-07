@@ -4,6 +4,7 @@
 from OCR_Reader import CVsReader
 from ChatGPT_Pipeline import CVsInfoExtractor
 import sys
+from datetime import datetime
 
 # Fetching command line arguments
 cvs_directory_path_arg, openai_api_key_arg, desired_positions_arg = sys.argv[1], sys.argv[2], sys.argv[3].split(",")
@@ -31,3 +32,11 @@ extract_cv_info_dfs = cvs_info_extractor.extract_cv_info()
 print("\n==== Summary ====")
 print(f"Total CVs Processed: {len(cvs_content_df)}")
 print(f"Job Description Keywords: {len(job_description_text.split())} words")
+
+
+
+with open("logs/keyword_gap_log.txt", "a") as f:
+    f.write(f"\n--- {datetime.now()} ---\n")
+    f.write(f"Resume: {filename}\n")
+    f.write(f"Common: {results['common_keywords']}\n")
+    f.write(f"Missing: {results['missing_keywords']}\n")
