@@ -5,6 +5,8 @@ from OCR_Reader import CVsReader
 from ChatGPT_Pipeline import CVsInfoExtractor
 import sys
 from datetime import datetime
+import csv
+import os
 
 # Fetching command line arguments
 cvs_directory_path_arg, openai_api_key_arg, desired_positions_arg = sys.argv[1], sys.argv[2], sys.argv[3].split(",")
@@ -33,6 +35,24 @@ print("\n==== Summary ====")
 print(f"Total CVs Processed: {len(cvs_content_df)}")
 print(f"Job Description Keywords: {len(job_description_text.split())} words")
 
+
+
+os.makedirs("output", exist_ok=True)
+csv_path = "output/keyword_analysis.csv"
+
+with open(csv_path, "w", newline="") as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(["Filename", "Common Keywords", "Missing Keywords"])
+
+    for index, row in cvs_content_df.iterrows():
+        filename = row['Filename']
+        results = compare_keywords(row['CV_Text'], job_description_text)
+        writer.writerow([
+            filename,
+            ", ".join(results['common_keywords']),
+            ", ".join(results['missing_keywords'])
+        ])
+print(f"Keyword analysis saved to {csv_path}")
 
 
 with open("logs/keyword_gap_log.txt", "a") as f:
