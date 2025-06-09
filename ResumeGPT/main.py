@@ -30,6 +30,17 @@ cvs_info_extractor = CVsInfoExtractor(cvs_df = cvs_content_df, openai_api_key = 
 # Use the extract_cv_info method of the CVsInfoExtractor instance to extract the desired information from the CVs.
 # This method presumably returns a list of dataframes, each dataframe corresponding to the extracted information from each CV.
 extract_cv_info_dfs = cvs_info_extractor.extract_cv_info()
+# Get Job Description from user input
+print("\n--- Job Description Keyword Gap Analysis ---")
+print("Paste the job description below (press Enter twice to finish):")
+
+jd_lines = []
+while True:
+    line = input()
+    if line == "":
+        break
+    jd_lines.append(line)
+job_description_text = " ".join(jd_lines)
 
 print("\n==== Summary ====")
 print(f"Total CVs Processed: {len(cvs_content_df)}")
@@ -53,6 +64,22 @@ with open(csv_path, "w", newline="") as csvfile:
             ", ".join(results['missing_keywords'])
         ])
 print(f"Keyword analysis saved to {csv_path}")
+# Optional: export to JSON if --json flag is passed
+if "--json" in sys.argv:
+    output_json = []
+    for index, row in cvs_content_df.iterrows():
+        results = compare_keywords(row['CV_Text'], job_description_text)
+        output_json.append({
+            "filename": row['Filename'],
+            "common_keywords": results['common_keywords'],
+            "missing_keywords": results['missing_keywords']
+        })
+
+    with open("output/keyword_analysis.json", "w") as json_file:
+        import json
+        json.dump(output_json, json_file, indent=2)
+
+    print(" Keyword analysis also saved to output/keyword_analysis.json")
 
 
 with open("logs/keyword_gap_log.txt", "a") as f:
